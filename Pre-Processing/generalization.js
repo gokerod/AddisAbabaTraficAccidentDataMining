@@ -83,9 +83,6 @@ attributes.forEach((attribute) => {
   });
 });
 
-// console.log(attributes);
-// console.log(new Set(accidentData.map((accident) => accident["Cause_of_accident"])));
-
 // Enumeration
 
 var map = new Map();
@@ -94,20 +91,16 @@ attributes.forEach((attribute) => {
   types = Array.from(new Set(accidentData.map((accident) => accident[attribute])));
   types.forEach((type, index) => {
     map.set(type, index);
-    // console.log(`${attribute} - ${type}`);
   });
-  //   console.log(`"${attribute}": ${Array.from(map)}`);
   obj[attribute] = Object.fromEntries(map);
 });
-// attributes.forEach((attribute) => {
-//   console.log(obj[attribute]);
-// });
+
 console.log(obj["Age_band_of_driver"]);
-// attributes = attributes.filter((attribute) => attribute == "Age_band_of_driver");
-// attributes.forEach((attribute) => {
-//   accidentData.forEach((accident) => {
-//     accident[attribute] = map.get(accident[attribute]);
-//   });
-// });
+attributes = attributes.filter((attribute) => attribute == "Age_band_of_driver");
+attributes.forEach((attribute) => {
+  accidentData.forEach((accident) => {
+    accident[attribute] = map.get(accident[attribute]);
+  });
+});
 
 module.exports = accidentData;
