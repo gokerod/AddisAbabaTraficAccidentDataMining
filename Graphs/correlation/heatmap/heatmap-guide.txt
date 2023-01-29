@@ -1,0 +1,1 @@
+The higher the number the better better the correlation to Accident_severity column. Use common sense and knowledge base to see, for example, that Time is correlated to Light_conditions as opposed to what the heatmap suggests.
